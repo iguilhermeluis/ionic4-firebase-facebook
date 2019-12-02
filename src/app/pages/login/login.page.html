@@ -1,0 +1,92 @@
+<ion-content class="swiper-no-swiping">
+  <ion-slides>
+    <ion-slide>
+      <ion-list>
+        <ion-item [hidden]="keyboard.isVisible">
+          <p>
+            <img src="/assets/img/undraw_dev_productivity_umsq.svg" />
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input
+            type="email"
+            autofocus="true"
+            [(ngModel)]="userLogin.email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="userLogin.password"
+          ></ion-input>
+        </ion-item>
+
+        <ion-button color="dark" shape="round" expand="block" (click)="login()"
+          ><ion-icon slot="icon-only" name="contact"> </ion-icon>Entrar
+        </ion-button>
+
+        <ion-button
+          color="primary"
+          shape="round"
+          expand="block"
+          (click)="loginFB()"
+        >
+          <ion-icon name="logo-facebook"></ion-icon>Entrar com facebook
+        </ion-button>
+
+        <ion-button
+          color="primary"
+          shape="round"
+          fill="clear"
+          expand="block"
+          (click)="mudarPagina('cadastro')"
+          >Fazer cadastro
+        </ion-button>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list>
+        <ion-item [hidden]="keyboard.isVisible">
+          <p>
+            <img src="/assets/img/undraw_dev_focus_b9xo.svg" />
+          </p>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input
+            type="email"
+            autofocus="true"
+            [(ngModel)]="userRegister.email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="userRegister.password"
+          ></ion-input>
+        </ion-item>
+
+        <ion-button
+          color="primary"
+          shape="round"
+          fill="outline"
+          expand="block"
+          (click)="register()"
+          ><ion-icon slot="icon-only" name="contact"> </ion-icon>Cadastrar
+        </ion-button>
+
+        <ion-button
+          color="primary"
+          shape="round"
+          fill="clear"
+          expand="block"
+          (click)="mudarPagina('login')"
+          >Fazer login
+        </ion-button>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
