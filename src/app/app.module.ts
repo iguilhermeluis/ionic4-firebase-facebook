@@ -10,11 +10,14 @@ import { Keyboard } from "@ionic-native/keyboard/ngx";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { environment } from "src/environments/environment";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { Facebook } from "@ionic-native/facebook/ngx";
+import { File } from "@ionic-native/file/ngx";
+import { Camera } from "@ionic-native/camera/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,14 +28,17 @@ import { Facebook } from "@ionic-native/facebook/ngx";
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Keyboard,
-    Facebook
+    Facebook,
+    File,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

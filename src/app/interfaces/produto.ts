@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export interface Produto {
   id?: string;
   name?: string;

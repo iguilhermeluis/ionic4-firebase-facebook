@@ -5,6 +5,7 @@ import {
 } from "@angular/fire/firestore";
 import { map } from "rxjs/operators";
 import { Produto } from "../interfaces/produto";
+import { AngularFireStorage } from "@angular/fire/storage";
 
 @Injectable({
   providedIn: "root"
@@ -12,9 +13,19 @@ import { Produto } from "../interfaces/produto";
 export class ProdutoService {
   //armazena a referencia da colleção que está lá no Firestore
   private productsCollection: AngularFirestoreCollection<Produto>;
-  constructor(private afs: AngularFirestore) {
+  constructor(
+    private afs: AngularFirestore,
+    private afStorage: AngularFireStorage
+  ) {
     this.productsCollection = this.afs.collection<Produto>("Produtos");
   }
+
+  uploudImage(blob: Blob, imageName) {
+    const ref = this.afStorage.ref(`images/${imageName}`);
+    const task = ref.put(blob);
+    return { task, ref };
+  }
+
   getProducts() {
     // lista os produtos da coleção
     return this.productsCollection.snapshotChanges().pipe(
